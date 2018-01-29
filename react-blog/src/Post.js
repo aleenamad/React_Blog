@@ -8,13 +8,23 @@ class App extends Component {
     super()
     this.state = {
       counter: 0,
-      comments: ['What The?', 'Yuh', 'hype', 'oh']
+      comments: ['What The?', 'Yuh', 'hype', 'oh'],
+      body: "Hello Welcome to your blog bitches"
     }
+    this.edit = this.edit.bind(this);
   }
   handleClick (e) {
     // setState is inherited from the Component class
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + 1,
+    })
+  }
+
+  edit (e) {
+    e.preventDefault();
+    let body = prompt("Enter new Boday");
+    this.setState({
+      body:body
     })
   }
   // what should the component render
@@ -25,13 +35,15 @@ class App extends Component {
       <h1> Blog </h1>
     <h1>Who is Author: {this.props.author} </h1>
     <p>Title: {this.props.title} </p>
-    <p>Body: {this.props.body} </p>
+    <h1>Body: {this.state.body} </h1>
+    <button onClick={this.edit}>Edit!</button>
 
-      <button onClick={(e) => this.handleClick(e)}>upvote!</button>
+
 
     <p>The initial count is {this.state.counter} </p>
 
-    <p>The Comments:</p>
+  <button onClick={(e) => this.handleClick(e)}>upvote!</button>
+    <h1>The Comments:</h1>
     <p>{this.state.comments.map(function(comment){
       return <Comment body={comment} />
     })}
