@@ -3,19 +3,39 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+  constructor (props) {
+    super()
+    this.state = {
+      counter: 0,
+      comments: ['What The?', 'Yuh', 'hype']
+    }
   }
+  handleClick (e) {
+    // setState is inherited from the Component class
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
+  // what should the component render
+  render() {
+    // Make sure to return some UI
+  return (
+    <div className="Yo">
+    <h1>Who is {this.props.name} </h1>
+    {/* <p className="intro">I am Steve Nash</p> */}
+
+      <button onClick={(e) => this.handleClick(e)}>upvote!</button>
+
+    <p>The initial count is {this.state.counter} </p>
+
+    <p>The Comments: {this.state.comment}</p>
+
+
+  </div>
+
+  )
 }
+}
+
 
 export default App;
