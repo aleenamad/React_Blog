@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Post from './Post';
+import Comment from './Comment';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Post />, document.getElementById('root'));
+registerServiceWorker();
+ReactDOM.render(<Comment />, document.getElementById('root'));
 registerServiceWorker();
 
 
 
 ReactDOM.render(
-  <App name={"Steve Nash"} />,
+  <Post author={"Roald Dahl"} title={"Charlie and the Chocolate Factory"} body={""} />,
+
   document.getElementById('root')
 )
